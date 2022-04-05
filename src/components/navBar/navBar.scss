@@ -1,0 +1,22 @@
+.navigation {
+  height: 100%;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.navigation--grid {
+  padding: 0 1.125rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation--title {
+  text-transform: uppercase;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}

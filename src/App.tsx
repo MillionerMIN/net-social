@@ -1,20 +1,9 @@
-import { useEffect, useState } from 'react';
+import Header from './components/header/Header';
 
 function App() {
-  const [theme, setTheme] = useState<string>('light');
-
-  useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  const switchTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-  };
   return (
     <div className='app'>
-      net-social
-      <input type='button' value='click' onClick={() => switchTheme()} />
+      <Header />
     </div>
   );
 }

@@ -1,0 +1,27 @@
+.header {
+  min-height: 5rem;
+  background: var(--background-main);
+}
+
+.header--grid {
+  min-height: 5rem;
+  display: grid;
+  grid-template-columns: 118px 480px 367px 330px auto;
+  align-content: center;
+}
+
+.header--logo {
+  width: 60px;
+  align-self: center;
+  justify-self: center;
+}
+
+.header--switch {
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+}
