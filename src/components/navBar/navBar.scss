@@ -12,11 +12,26 @@
   align-items: center;
 }
 
+.navigation--item {
+  height: 5rem;
+  padding: 10px 0;
+}
+
+.navigation--link {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
 .navigation--title {
+  margin: 0;
   text-transform: uppercase;
 }
 
-svg {
+.navigation--link svg {
   width: 24px;
   height: 24px;
 }

@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: 118px 480px 367px 330px auto;
   align-content: center;
+  align-items: center;
 }
 
 .header--logo {
@@ -18,10 +19,20 @@
 
 .header--switch {
   border-left: 1px solid var(--border);
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
 
+.header--switch:hover {
+  color: var(--text-secondary);
+}
+
+
+.header--switch svg {
+  width: 24px;
+  height: 24px;
 }

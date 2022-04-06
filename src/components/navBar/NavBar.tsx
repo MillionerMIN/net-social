@@ -1,39 +1,41 @@
-import './navBar.scss';
+import './navbar.scss';
 
-import { FaRss } from 'react-icons/fa';
+import { BsFillMusicPlayerFill, BsPersonBadge } from 'react-icons/bs';
+import { FaNewspaper, FaRss } from 'react-icons/fa';
+import { FiMessageSquare, FiSettings } from 'react-icons/fi';
 
-const NavBar = () => {
+const Navbar = () => {
   return (
     <nav className='navigation'>
       <ul className='navigation--grid'>
-        <li>
-          <a href='#'>
-            <FaRss width={'100%'} />
-            <h6 className='navigation--title'>feed</h6>
+        <li className='navigation--item'>
+          <a className='navigation--link' href='#'>
+            <BsPersonBadge width={'100%'} />
+            <h6 className='navigation--title'>profile</h6>
           </a>
         </li>
-        <li>
-          <a href='#'>
-            <FaRss />
-            <h6 className='navigation--title'>network</h6>
+        <li className='navigation--item'>
+          <a className='navigation--link' href='#'>
+            <FiMessageSquare />
+            <h6 className='navigation--title'>messages</h6>
           </a>
         </li>
-        <li>
-          <a href='#'>
-            <FaRss />
-            <h6 className='navigation--title'>jobs</h6>
+        <li className='navigation--item'>
+          <a className='navigation--link' href='#'>
+            <FaNewspaper />
+            <h6 className='navigation--title'>news</h6>
           </a>
         </li>
-        <li>
-          <a href='#'>
-            <FaRss />
-            <h6 className='navigation--title'>chat</h6>
+        <li className='navigation--item'>
+          <a className='navigation--link' href='#'>
+            <BsFillMusicPlayerFill />
+            <h6 className='navigation--title'>Music</h6>
           </a>
         </li>
-        <li>
-          <a href='#'>
-            <FaRss />
-            <h6 className='navigation--title'>notice</h6>
+        <li className='navigation--item'>
+          <a className='navigation--link' href='#'>
+            <FiSettings />
+            <h6 className='navigation--title'>setting</h6>
           </a>
         </li>
       </ul>
@@ -41,4 +43,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

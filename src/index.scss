@@ -16,7 +16,7 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   --background: #083b55;
-  --background-main: rgba(255, 255, 255, 0.1);
+  --background-main: #03679c;
   --text-primary: #FFFFFF;
   --text-secondary: #0275B1;
   --border: #F4F4F4;
@@ -42,6 +42,12 @@ body {
 
 .container {
   max-width: 1440px;
+}
+
+.content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
 }
 
 a {
