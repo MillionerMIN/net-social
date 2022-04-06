@@ -1,42 +1,43 @@
 import './navbar.scss';
 
 import { BsFillMusicPlayerFill, BsPersonBadge } from 'react-icons/bs';
-import { FaNewspaper, FaRss } from 'react-icons/fa';
+import { FaNewspaper } from 'react-icons/fa';
 import { FiMessageSquare, FiSettings } from 'react-icons/fi';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className='navigation'>
       <ul className='navigation--grid'>
         <li className='navigation--item'>
-          <a className='navigation--link' href='#'>
-            <BsPersonBadge width={'100%'} />
+          <NavLink className='navigation--link' to='/profile'>
+            <BsPersonBadge />
             <h6 className='navigation--title'>profile</h6>
-          </a>
+          </NavLink>
         </li>
         <li className='navigation--item'>
-          <a className='navigation--link' href='#'>
+          <NavLink className='navigation--link' to='/messages'>
             <FiMessageSquare />
             <h6 className='navigation--title'>messages</h6>
-          </a>
+          </NavLink>
         </li>
         <li className='navigation--item'>
-          <a className='navigation--link' href='#'>
+          <NavLink className='navigation--link' to='/news'>
             <FaNewspaper />
             <h6 className='navigation--title'>news</h6>
-          </a>
+          </NavLink>
         </li>
         <li className='navigation--item'>
-          <a className='navigation--link' href='#'>
+          <NavLink className='navigation--link' to='/Music'>
             <BsFillMusicPlayerFill />
-            <h6 className='navigation--title'>Music</h6>
-          </a>
+            <h6 className='navigation--title'>music</h6>
+          </NavLink>
         </li>
         <li className='navigation--item'>
-          <a className='navigation--link' href='#'>
+          <NavLink className='navigation--link' to='/setting'>
             <FiSettings />
             <h6 className='navigation--title'>setting</h6>
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
