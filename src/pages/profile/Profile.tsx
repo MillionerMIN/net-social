@@ -1,7 +1,14 @@
 import './profile.scss';
 
+import Sidebar from '../../components/sidebar/Sidebar';
+
 const Profile = () => {
-  return <div>profile</div>;
+  return (
+    <div className='profile'>
+      <div className='profile--bg'>profile</div>
+      <Sidebar/>
+    </div>
+  );
 };
 
 export default Profile;

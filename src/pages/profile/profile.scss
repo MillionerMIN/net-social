@@ -1,0 +1,13 @@
+.profile {
+  display: grid;
+  grid-template-columns: minmax(320px, 850px) minmax(290px, 290px);
+  gap: 40px;
+}
+
+.profile--bg {
+  background-color: #FFF;
+}
+
+.profile--bg-pd {
+  padding: 25px 30px;
+}

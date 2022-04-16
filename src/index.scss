@@ -12,6 +12,8 @@ body[data-theme='light'] {
   --text-primary: #181818;
   --text-secondary: #0275B1;
   --border: #F4F4F4;
+  --background-sidebar: #FFF;
+  --link-text: #0275B1;
 }
 
 body[data-theme='dark'] {
@@ -20,6 +22,8 @@ body[data-theme='dark'] {
   --text-primary: #FFFFFF;
   --text-secondary: #0275B1;
   --border: #F4F4F4;
+  --background-sidebar: #03679c;
+  --link-text: #FFFFFF;
 }
 
 * {

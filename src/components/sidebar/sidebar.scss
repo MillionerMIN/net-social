@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: var(--background-sidebar);
+}
+
+.sidebar-pd {
+  padding: 25px 30px;
+}
+
+.sidebar--header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar--title {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+.sidebar--link {
+  font-size: 0.75rem;
+  color: var(--link-text);
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.sidebar--link:hover {
+  transform: scale(1.1);
+}
