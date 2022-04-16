@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { FaMoon, FaRegSun } from 'react-icons/fa';
 
 import Logo from '../../assets/icons/logo.png';
-import Navbar from '../navbar/Navbar';
+import { NavBar } from '../navBar/NavBar';
 
 const Header = () => {
   const [theme, setTheme] = useState<string>('light');
@@ -24,7 +24,7 @@ const Header = () => {
       <div className='container'>
         <div className='header--grid'>
           <img className='header--logo' src={Logo} alt='logo' />
-          <Navbar />
+          <NavBar />
           <div>search</div>
           <div>avatar</div>
           <div className='header--switch' onClick={switchTheme}>

@@ -1,11 +1,11 @@
-import './navbar.scss';
+import './navBar.scss';
 
 import { BsFillMusicPlayerFill, BsPersonBadge } from 'react-icons/bs';
 import { FaNewspaper } from 'react-icons/fa';
 import { FiMessageSquare, FiSettings } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
+export const NavBar = () => {
   return (
     <nav className='navigation'>
       <ul className='navigation--grid'>
@@ -43,5 +43,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;
