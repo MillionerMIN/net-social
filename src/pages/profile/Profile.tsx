@@ -2,12 +2,13 @@ import './profile.scss';
 
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
+import UserProfile from '../../components/userProfile/UserProfile';
 
 const Profile = () => {
   return (
     <div className='profile'>
       <Layout>
-        <div className='profile--bg profile-pd'>profile</div>
+        <UserProfile />
         <Sidebar />
       </Layout>
     </div>
