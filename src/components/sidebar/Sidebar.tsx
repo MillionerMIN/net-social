@@ -2,6 +2,8 @@ import './sidebar.scss';
 
 import { Link } from 'react-router-dom';
 
+import ViewCounter from '../common/viewCounter/ViewCounter';
+
 type SidebarPropsType = {
   title?: string;
   link?: {
@@ -22,6 +24,11 @@ const Sidebar = (props: SidebarPropsType) => {
         <Link className='sidebar--link' to={link.href}>
           <span>{link.value}</span>
         </Link>
+      </div>
+      <div className='sidebar--body'>
+        <ViewCounter counter={365} span='views today' />
+        <ViewCounter counter={15} span='posts views' />
+        <ViewCounter counter={9} span='search appearances' />
       </div>
     </div>
   );
