@@ -15,6 +15,10 @@ body[data-theme='light'] {
   --background-sidebar: #FFF;
   --link-text: #0275B1;
   --box-shadow: rgba(2, 117, 177, 0.1);
+  --button-bg: linear-gradient(180deg, #0077B5 0%, #0E6795 100%);
+  --button-color: #FFFFFF;
+  --button-red: linear-gradient(180deg, #b50015 0%, #950e24 100%);
+  --button-red-text-color: #FFF;
 }
 
 body[data-theme='dark'] {
@@ -26,7 +30,12 @@ body[data-theme='dark'] {
   --background-sidebar: #03679c;
   --link-text: #FFFFFF;
   --box-shadow: rgba(252, 252, 252, 0.1);
+  --button-bg: linear-gradient(180deg, #f4f4f4 0%, #d4d4d4 100%);
+  --button-color: #0275B1;
+  --button-red: linear-gradient(180deg, #b50015 0%, #950e24 100%);
+  --button-red-text-color: #FFF;
 }
+
 
 * {
   margin: 0;

@@ -6,3 +6,59 @@
 .user-profile-pd {
   padding: 25px 30px;
 }
+
+.user-profile--background {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.user-profile--wrapper {
+  min-height: 180px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+.user-profile--photo {
+  position: relative;
+}
+
+.user-profile--position {
+  width: 100%;
+  position: absolute;
+  top: -20px;
+  left: 25px;
+}
+
+.user-profile--about {
+  position: relative;
+  padding: 25px 30px 35px 0;
+}
+
+.user-profile--location {
+  position: absolute;
+  top: 26px;
+  right: 30px;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.user-profile--location svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--link-text);
+}
+
+.user-profile--name {
+  font-size: 1.125rem;
+  line-height: 1rem;
+}
+
+.user-profile--about p {
+  font-size: 0.875rem;
+  line-height: 150%;
+}
+
+.user-profile--infoButton {
+  margin-right: 0.9375rem;
+}
