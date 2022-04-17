@@ -1,0 +1,5 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 850px) minmax(290px, 290px);
+  gap: 40px;
+}

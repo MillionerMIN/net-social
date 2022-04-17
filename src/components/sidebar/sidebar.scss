@@ -1,5 +1,6 @@
 .sidebar {
   background-color: var(--background-sidebar);
+  box-shadow: 2px 2px 2px var(--box-shadow);
 }
 
 .sidebar-pd {
@@ -11,6 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--border);
 }
 
 .sidebar--title {
@@ -18,6 +20,7 @@
   font-size: 0.75rem;
   line-height: 11px;
   text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 
 .sidebar--link {
@@ -25,6 +28,7 @@
   color: var(--link-text);
   text-decoration: underline;
   text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 
 .sidebar--link:hover {

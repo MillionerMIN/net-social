@@ -1,11 +1,10 @@
-.profile {
-  display: grid;
-  grid-template-columns: minmax(320px, 850px) minmax(290px, 290px);
-  gap: 40px;
+.profile-pd {
+  padding: 25px 30px;
 }
 
 .profile--bg {
   background-color: #FFF;
+  box-shadow: 2px 2px 2px var(--box-shadow);
 }
 
 .profile--bg-pd {

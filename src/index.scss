@@ -10,10 +10,11 @@ body[data-theme='light'] {
   --background: #F7F9FB;
   --background-main: #FFFFFF;
   --text-primary: #181818;
-  --text-secondary: #0275B1;
+  --text-secondary: #0275b1;
   --border: #F4F4F4;
   --background-sidebar: #FFF;
   --link-text: #0275B1;
+  --box-shadow: rgba(2, 117, 177, 0.1);
 }
 
 body[data-theme='dark'] {
@@ -24,6 +25,7 @@ body[data-theme='dark'] {
   --border: #F4F4F4;
   --background-sidebar: #03679c;
   --link-text: #FFFFFF;
+  --box-shadow: rgba(252, 252, 252, 0.1);
 }
 
 * {
