@@ -1,10 +1,14 @@
+.user-profile {
+  max-height: 360px;
+}
+
 .user-profile-bg {
   background-color: var(--background-main);
   box-shadow: 2px 2px 2px var(--box-shadow);
 }
 
 .user-profile-pd {
-  padding: 25px 30px;
+  padding: 1.5625rem 1.875rem;
 }
 
 .user-profile--background {
@@ -51,6 +55,7 @@
 
 .user-profile--name {
   font-size: 1.125rem;
+  font-weight: 600;
   line-height: 1rem;
 }
 
@@ -60,5 +65,9 @@
 }
 
 .user-profile--infoButton {
+  width: 170px;
+}
+
+.user-profile--infoButton-mr {
   margin-right: 0.9375rem;
 }

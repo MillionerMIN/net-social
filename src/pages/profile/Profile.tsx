@@ -1,12 +1,14 @@
 import './profile.scss';
 
+import NewPost from '../../components/common/newPost/NewPost';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import UserProfile from '../../components/userProfile/UserProfile';
+import Post from './post/Post';
 
 const userProfile = {
-  name: 'Dmitry',
-  lastName: 'Kargaev',
+  name: 'Leonardo',
+  lastName: 'DiCaprio',
   bg: 'https://img.wallpapersafari.com/desktop/1920/1080/1/2/LFPjy5.jpg',
   about:
     'Freelance UX/UI designer, 80+ projects in web design, mobile apps  (iOS & android) and creative projects. Open to offers.',
@@ -19,13 +21,22 @@ const Profile = () => {
   return (
     <div className='profile'>
       <Layout>
-        <UserProfile
-          bg={userProfile.bg}
-          photo={userProfile.photo}
-          about={userProfile.about}
-          location={userProfile.location}
-        />
-        <Sidebar />
+        <div className='profile--left'>
+          <UserProfile
+            name={userProfile.name}
+            lastName={userProfile.lastName}
+            bg={userProfile.bg}
+            photo={userProfile.photo}
+            about={userProfile.about}
+            location={userProfile.location}
+          />
+          <NewPost />
+          <Post />
+        </div>
+        <aside className='profile--sidebar'>
+          <Sidebar />
+          <Sidebar />
+        </aside>
       </Layout>
     </div>
   );

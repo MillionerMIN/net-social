@@ -25,7 +25,7 @@ const UserProfile = (props: UserProfileType) => {
     location,
   } = props;
   return (
-    <div className='user-profile user-profile-bg'>
+    <section className='user-profile user-profile-bg'>
       <img className='user-profile--background' src={bg} alt='wallpaper' />
       <div className='user-profile--wrapper'>
         <div className='user-profile--photo'>
@@ -42,11 +42,15 @@ const UserProfile = (props: UserProfileType) => {
             {name} {lastName}
           </h6>
           <p>{about}</p>
-          <Button className='user-profile--infoButton'>contact info</Button>
-          <Button variant='secondary'>1,043 connections</Button>
+          <Button className='user-profile--infoButton user-profile--infoButton-mr'>
+            contact info
+          </Button>
+          <Button className='user-profile--infoButton' variant='secondary'>
+            1,043 connections
+          </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

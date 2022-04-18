@@ -18,7 +18,7 @@ const Sidebar = (props: SidebarPropsType) => {
     link = { value: 'go to stats', href: '#' },
   } = props;
   return (
-    <div className='sidebar sidebar-pd'>
+    <section className='sidebar sidebar-pd'>
       <div className='sidebar--header'>
         <h6 className='sidebar--title'>{title}</h6>
         <Link className='sidebar--link' to={link.href}>
@@ -30,7 +30,7 @@ const Sidebar = (props: SidebarPropsType) => {
         <ViewCounter counter={15} span='posts views' />
         <ViewCounter counter={9} span='search appearances' />
       </div>
-    </div>
+    </section>
   );
 };
 
