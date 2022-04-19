@@ -3,11 +3,13 @@
 
 :root {
   font-size: 1em;
-
+  // ############vars#################
+  --border-radios: 4px;
 }
 
 body[data-theme='light'] {
-  --background: #F7F9FB;
+  --background: rgb(248, 250, 252);
+  --background-footer: rgb(252, 252, 252, .9);
   --background-main: #FFFFFF;
   --text-primary: #181818;
   --text-secondary: #0275b1;

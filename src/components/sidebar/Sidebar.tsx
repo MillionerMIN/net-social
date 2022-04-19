@@ -1,8 +1,7 @@
 import './sidebar.scss';
 
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-
-import ViewCounter from '../common/viewCounter/ViewCounter';
 
 type SidebarPropsType = {
   title?: string;
@@ -10,12 +9,14 @@ type SidebarPropsType = {
     value: string;
     href: string;
   };
+  children?: ReactNode;
 };
 
 const Sidebar = (props: SidebarPropsType) => {
   const {
     title = 'your dashboard',
     link = { value: 'go to stats', href: '#' },
+    children,
   } = props;
   return (
     <section className='sidebar sidebar-pd'>
@@ -25,11 +26,7 @@ const Sidebar = (props: SidebarPropsType) => {
           <span>{link.value}</span>
         </Link>
       </div>
-      <div className='sidebar--body'>
-        <ViewCounter counter={365} span='views today' />
-        <ViewCounter counter={15} span='posts views' />
-        <ViewCounter counter={9} span='search appearances' />
-      </div>
+      <div className='sidebar--body'>{children}</div>
     </section>
   );
 };

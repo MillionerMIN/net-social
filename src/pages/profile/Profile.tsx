@@ -1,6 +1,7 @@
 import './profile.scss';
 
 import NewPost from '../../components/common/newPost/NewPost';
+import ViewCounter from '../../components/common/viewCounter/ViewCounter';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import UserProfile from '../../components/userProfile/UserProfile';
@@ -48,7 +49,11 @@ const Profile = () => {
           />
         </div>
         <aside className='profile--sidebar'>
-          <Sidebar />
+          <Sidebar>
+            <ViewCounter counter={365} span='views today' />
+            <ViewCounter counter={15} span='posts views' />
+            <ViewCounter counter={9} span='search appearances' />
+          </Sidebar>
           <Sidebar />
         </aside>
       </Layout>

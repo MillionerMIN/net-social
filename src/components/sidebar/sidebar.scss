@@ -1,14 +1,17 @@
 .sidebar {
   background-color: var(--background-sidebar);
   box-shadow: 2px 2px 2px var(--box-shadow);
+  border-radius: var(--border-radios);
 }
 
 .sidebar-pd {
-  padding: 25px 30px;
+  padding: 1.5625rem 0;
 }
 
 .sidebar--header {
+  position: relative;
   display: flex;
+  padding: 0 1.875rem;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -36,5 +39,6 @@
 }
 
 .sidebar--body {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
+  padding: 0 1.875rem;
 }

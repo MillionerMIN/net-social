@@ -1,0 +1,55 @@
+.chat-bg {
+  background: var(--background-main);
+  box-shadow: 2px 2px 2px var(--box-shadow);
+  border-radius: var(--border-radios);
+}
+
+.chat--wrapper {
+
+  padding: 1.5625rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.chat--text {
+  position: relative;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 0.6875rem;
+  text-transform: uppercase;
+  padding: 0 1.875rem 1.5625rem;
+}
+
+.chat--text::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+
+.chat--messages {
+  min-height: 200px;
+  padding: 1.875rem;
+}
+
+.chat--send {
+  position: relative;
+  padding: 1.5625rem 1.5625rem 0;
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  column-gap: 10px;
+}
+
+.chat--send::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}

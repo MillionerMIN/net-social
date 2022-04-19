@@ -11,8 +11,8 @@ type AuthorPostPropsType = {
 const AuthorPost = (props: AuthorPostPropsType) => {
   const {
     photo = 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
-    name = 'Leonardo DiCaprio',
-    profession = 'Freelance UX/UI',
+    name = 'No name',
+    profession = 'no profession',
   } = props;
   return (
     <div className='author author-mb'>
