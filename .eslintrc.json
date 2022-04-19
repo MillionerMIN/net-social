@@ -25,12 +25,15 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": ["./tsconfig.json"]
+    "project": [
+      "./tsconfig.json"
+    ]
   },
   "rules": {
     "eqeqeq": "warn",
     "strict": "off",
     "react/no-set-state": "off",
+    "no-console": "warn",
     "@typescript-eslint/strict-boolean-expressions": [
       2,
       {
@@ -47,7 +50,10 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   },
-  "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+  "ignorePatterns": [
+    "src/**/*.test.ts",
+    "src/frontend/generated/*"
+  ],
   "env": {
     "browser": true
   }
