@@ -40,5 +40,10 @@
 
 .sidebar--body {
   margin-top: 1rem;
-  padding: 0 1.875rem;
+}
+
+.sidebar--body div:last-child {
+  border-bottom: none;
+  margin: 0;
+  padding-bottom: 0;
 }

@@ -1,0 +1,24 @@
+.author-message {
+  display: flex;
+  column-gap: 0.9375rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.author-message-pd {
+  padding: 0 1.875rem 0.9375rem;
+}
+
+.author-message-mb {
+  margin-bottom: 0.9375rem;
+}
+
+.author-message--name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 0.8125rem;
+}
+
+.author-message--preview {
+  font-size: 0.625rem;
+}
