@@ -1,0 +1,19 @@
+.author {
+  display: flex;
+  column-gap: 0.9375rem;
+  align-items: center;
+}
+
+.author-mb {
+  margin-bottom: 0.9375rem;
+}
+
+.author--name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 0.8125rem;
+}
+
+.author--profession {
+  font-size: 0.625rem;
+}

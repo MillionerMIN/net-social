@@ -8,17 +8,20 @@ const Messages = React.lazy(() => import('../pages/messages/Messages'));
 const News = React.lazy(() => import('../pages/news/News'));
 const Music = React.lazy(() => import('../pages/music/Music'));
 const Setting = React.lazy(() => import('../pages/setting/Setting'));
+const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 const Routing = () => {
   return (
     <main className='main main-pd main-md'>
       <Suspense fallback='...Loading'>
         <Routes>
+          <Route path='/' element={<Profile />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/messages' element={<Messages />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
           <Route path='/setting' element={<Setting />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
     </main>

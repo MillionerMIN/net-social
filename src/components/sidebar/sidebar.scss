@@ -1,0 +1,44 @@
+.sidebar {
+  background-color: var(--background-sidebar);
+  box-shadow: 2px 2px 2px var(--box-shadow);
+  border-radius: var(--border-radios);
+}
+
+.sidebar-pd {
+  padding: 1.5625rem 0;
+}
+
+.sidebar--header {
+  position: relative;
+  display: flex;
+  padding: 0 1.875rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar--title {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 11px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar--link {
+  font-size: 0.75rem;
+  color: var(--link-text);
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar--link:hover {
+  transform: scale(1.1);
+}
+
+.sidebar--body {
+  margin-top: 1rem;
+  padding: 0 1.875rem;
+}
