@@ -4,7 +4,6 @@ type ViewCounterPropsType = {
   counter?: number;
   span?: string;
 };
-console.log('click');
 
 const ViewCounter = (props: ViewCounterPropsType) => {
   const { counter = 0, span = 'default' } = props;
