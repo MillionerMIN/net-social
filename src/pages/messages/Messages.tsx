@@ -1,6 +1,5 @@
 import './messages.scss';
 
-import AuthorPost from '../../components/common/authorPost/AuthorPost';
 import Chat from '../../components/common/chat/Chat';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -12,8 +11,9 @@ const Messages = () => {
       <Layout position='right'>
         <aside className='messages--sidebar'>
           <Sidebar title='chats'>
-            <AuthorMessage />
-            <AuthorMessage />
+            <AuthorMessage badge='online' />
+            <AuthorMessage badge='unOnline' />
+            <AuthorMessage badge='move' />
             <AuthorMessage />
           </Sidebar>
         </aside>

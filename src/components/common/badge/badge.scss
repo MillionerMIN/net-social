@@ -1,0 +1,36 @@
+.badge-custom {
+  position: relative;
+}
+
+.badge-custom-online::before {
+  position: absolute;
+  content: '';
+  width: 9px;
+  height: 9px;
+  bottom: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #02b033 0%, #08a534 100%);
+}
+
+.badge-custom-move::before {
+  position: absolute;
+  content: '';
+  width: 9px;
+  height: 9px;
+  bottom: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fbff00 0%, #edf036 100%);
+}
+
+.badge-custom-unOnline::before {
+  position: absolute;
+  content: '';
+  width: 9px;
+  height: 9px;
+  bottom: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #b00202 0%, #b00202 100%);
+}
