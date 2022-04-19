@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 import AuthorPost from '../../../components/common/authorPost/AuthorPost';
 
-type MyPostPropsType = {
-  author?: {
-    photo: string;
-    name: string;
-    profession: string;
-  };
+type PostPropsType = {
+  photo: string;
+  name: string;
+  profession: string;
+  message: string;
+  like: number;
 };
 
-const Post = (props: MyPostPropsType) => {
-  const { author } = props;
+const Post = (props: PostPropsType) => {
+  const { name, photo, profession, message, like } = props;
   return (
     <section className='post post-bg'>
       <div className='post--wrapper'>
@@ -22,18 +22,12 @@ const Post = (props: MyPostPropsType) => {
           <Link to={'#'}>...</Link>
         </div>
         <div className='post--body'>
-          <AuthorPost />
+          <AuthorPost name={name} photo={photo} profession={profession} />
 
-          <p>
-            What did the Dursleys care if Harry lost his place on the House
-            Quidditch team because he hadn’t practiced all summer? What was it
-            to the Dursleys if Harry went back to school without any of his
-            homework done? The Dursleys were what wizards called Muggles (not a
-            drop of magical blood in their veins).
-          </p>
+          <p>{message}</p>
         </div>
         <div className='post--footer'>
-          <div>like</div>
+          <div>{like}</div>
           <div>coments</div>
           <div></div>
           <div>share</div>
