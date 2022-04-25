@@ -38,11 +38,11 @@
   transform: scale(1.1);
 }
 
-.sidebar--body {
-  margin-top: 1rem;
-}
+// .sidebar--body {
+//   margin-top: 1rem;
+// }
 
-.sidebar--body div:last-child {
+.sidebar--body a:last-child {
   border-bottom: none;
   margin: 0;
   padding-bottom: 0;

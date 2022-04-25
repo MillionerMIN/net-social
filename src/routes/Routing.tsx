@@ -16,11 +16,14 @@ const Routing = () => {
       <Suspense fallback='...Loading'>
         <Routes>
           <Route path='/' element={<Profile />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/messages' element={<Messages />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/music' element={<Music />} />
-          <Route path='/setting' element={<Setting />} />
+          <Route path='profile' element={<Profile />} />
+          <Route path='messages' element={<Messages />}>
+            <Route path=':chat' element={<Messages />} />
+          </Route>
+
+          <Route path='news' element={<News />} />
+          <Route path='music' element={<Music />} />
+          <Route path='setting' element={<Setting />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -17,7 +17,7 @@ const AuthorMessage = (props: AuthorMessageType) => {
     badge = 'none',
   } = props;
   return (
-    <div className='author-message author-message-mb author-message-pd '>
+    <div className='author-message author-message-pd'>
       <UserPhoto size={52} photo={photo} badge={badge} />
       <div>
         <div className='author-message--name'>{name}</div>

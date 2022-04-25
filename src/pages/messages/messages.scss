@@ -9,3 +9,30 @@
   flex-direction: column;
   row-gap: 1.25rem;
 }
+
+.messages--link {
+  position: relative;
+  width: 290px;
+  height: 83px;
+  background: #fff;
+  z-index: 2;
+}
+
+.messages--link::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 83px;
+  background: var(--link-text);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.messages--link.active.messages--link::before {
+  opacity: 1;
+}
+
+.messages--link.active .author-message {
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
