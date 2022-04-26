@@ -4,7 +4,7 @@ import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';
 
 type ChatPropsType = {
-  messages?: 'string'[];
+  messages?: string[];
 };
 
 const Chat = (props: ChatPropsType) => {

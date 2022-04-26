@@ -8,18 +8,28 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import AuthorMessage from './authorMessage/AuthorMessage';
 
 const Messages = () => {
+  const dialogData = [
+    { id: '1', name: 'Darlene Black', photo: '' },
+    { id: '2', name: 'Theresa Steward', photo: '' },
+    { id: '3', name: 'Brandon Wilson', photo: '' },
+    { id: '4', name: 'Kyle Fisher', photo: '' },
+    { id: '5', name: 'Audrey Alexander', photo: '' },
+  ];
+
+  const messagesData = ['Hi', 'Let`s tell with you', 'Go', 'What does you?'];
+
+  const dialogItems = dialogData.map((item) => (
+    <Dialog key={item.id} id={item.id} name={item.name} />
+  ));
+
   return (
     <div className='messages'>
       <Layout position='right'>
         <aside className='messages--sidebar'>
-          <Sidebar title='chats'>
-            <Dialog name='Dmitri' id='1' badge='move' />
-            <Dialog name='Vladimir' id='2' badge='online' />
-            <Dialog name='Victor' id='3' badge='unOnline' />
-          </Sidebar>
+          <Sidebar title='chats'>{dialogItems}</Sidebar>
         </aside>
         <div className='messages--main'>
-          <Chat />
+          <Chat messages={messagesData} />
         </div>
       </Layout>
     </div>
