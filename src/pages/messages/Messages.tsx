@@ -7,16 +7,13 @@ import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import AuthorMessage from './authorMessage/AuthorMessage';
 
-const Messages = () => {
-  const dialogData = [
-    { id: '1', name: 'Darlene Black', photo: '' },
-    { id: '2', name: 'Theresa Steward', photo: '' },
-    { id: '3', name: 'Brandon Wilson', photo: '' },
-    { id: '4', name: 'Kyle Fisher', photo: '' },
-    { id: '5', name: 'Audrey Alexander', photo: '' },
-  ];
+type MessagesPropsType = {
+  dialogData: { id: string; name: string; photo?: string }[];
+  messagesData: string[];
+};
 
-  const messagesData = ['Hi', 'Let`s tell with you', 'Go', 'What does you?'];
+const Messages = (props: MessagesPropsType) => {
+  const { dialogData, messagesData } = props;
 
   const dialogItems = dialogData.map((item) => (
     <Dialog key={item.id} id={item.id} name={item.name} />
