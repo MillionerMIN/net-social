@@ -1,20 +1,22 @@
 import './profile.scss';
 
-import { PostDataType, UserProfileType } from '../../App';
 import NewPost from '../../components/common/newPost/NewPost';
 import ViewCounter from '../../components/common/viewCounter/ViewCounter';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import UserProfile from '../../components/userProfile/UserProfile';
+import { PostDataType, UserProfileType } from '../../redux/state';
+import AuthorMessage from '../messages/authorMessage/AuthorMessage';
 import Post from './post/Post';
 
 type ProfilePropsType = {
   userProfile: UserProfileType;
   postData: PostDataType[];
+  friends: UserProfileType[];
 };
 
 const Profile = (props: ProfilePropsType) => {
-  const { userProfile, postData } = props;
+  const { userProfile, postData, friends } = props;
 
   const posts = postData.map((post, i) => (
     <Post
@@ -24,6 +26,14 @@ const Profile = (props: ProfilePropsType) => {
       profession={post.profession}
       message={post.message}
       like={post.like}
+    />
+  ));
+  const friendsSidebar = friends.map((friend, i) => (
+    <AuthorMessage
+      key={i}
+      name={`${friend.name} ${friend.lastName}`}
+      photo={friend.photo}
+      preview={friend.profession}
     />
   ));
 
@@ -48,7 +58,9 @@ const Profile = (props: ProfilePropsType) => {
             <ViewCounter counter={15} span='posts views' />
             <ViewCounter counter={9} span='search appearances' />
           </Sidebar>
-          <Sidebar />
+          <Sidebar title='friends' link={{ value: 'view all', href: '#' }}>
+            {friendsSidebar}
+          </Sidebar>
         </aside>
       </Layout>
     </div>

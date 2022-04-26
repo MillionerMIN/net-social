@@ -3,7 +3,7 @@ import './routing.scss';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { DialogObjType, PostDataType, UserProfileType } from '../App';
+import { StateType } from '../redux/state';
 
 const Profile = React.lazy(() => import('../pages/profile/Profile'));
 const Messages = React.lazy(() => import('../pages/messages/Messages'));
@@ -13,36 +13,51 @@ const Setting = React.lazy(() => import('../pages/setting/Setting'));
 const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 type RoutingPropsType = {
-  userProfile: UserProfileType;
-  posts: PostDataType[];
-  messagesData: string[];
-  dialogData: DialogObjType[];
+  state: StateType;
 };
 
 const Routing = (props: RoutingPropsType) => {
-  const { messagesData, dialogData, userProfile, posts } = props;
+  const { profilePage, messagesPage, sidebar } = props.state;
   return (
     <main className='main main-pd main-md'>
       <Suspense fallback='...Loading'>
         <Routes>
           <Route
             path='/'
-            element={<Profile postData={posts} userProfile={userProfile} />}
+            element={
+              <Profile
+                postData={profilePage.postData}
+                userProfile={profilePage.userProfile}
+                friends={sidebar.friends}
+              />
+            }
           />
           <Route
             path='profile'
-            element={<Profile postData={posts} userProfile={userProfile} />}
+            element={
+              <Profile
+                postData={profilePage.postData}
+                userProfile={profilePage.userProfile}
+                friends={sidebar.friends}
+              />
+            }
           />
           <Route
             path='messages'
             element={
-              <Messages messagesData={messagesData} dialogData={dialogData} />
+              <Messages
+                messagesData={messagesPage.messagesData}
+                dialogData={messagesPage.dialogData}
+              />
             }
           >
             <Route
               path=':chat'
               element={
-                <Messages messagesData={messagesData} dialogData={dialogData} />
+                <Messages
+                  messagesData={messagesPage.messagesData}
+                  dialogData={messagesPage.dialogData}
+                />
               }
             />
           </Route>

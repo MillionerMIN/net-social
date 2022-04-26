@@ -16,7 +16,7 @@ const Messages = (props: MessagesPropsType) => {
   const { dialogData, messagesData } = props;
 
   const dialogItems = dialogData.map((item) => (
-    <Dialog key={item.id} id={item.id} name={item.name} />
+    <Dialog key={item.id} id={item.id} name={item.name} photo={item.photo} />
   ));
 
   return (
@@ -37,13 +37,14 @@ type DialogPropsType = {
   name: string;
   id: string;
   badge?: 'online' | 'unOnline' | 'move' | 'none';
+  photo?: string;
 };
 
 const Dialog = (props: DialogPropsType) => {
-  const { name, id, badge } = props;
+  const { name, id, badge, photo } = props;
   return (
     <NavLink className='messages--link' to={id}>
-      <AuthorMessage name={name} badge={badge} />
+      <AuthorMessage name={name} badge={badge} photo={photo} />
     </NavLink>
   );
 };

@@ -1,6 +1,7 @@
 import './chat.scss';
 
 import Button from '../button/Button';
+import Message from '../message/Message';
 import TextareaText from '../textareaText/TextareaText';
 
 type ChatPropsType = {
@@ -11,9 +12,7 @@ const Chat = (props: ChatPropsType) => {
   const { messages = ['Hi', 'Let`s tell with you', 'Go'] } = props;
 
   const contentMessages = messages.map((mess, i) => (
-    <div key={i} className='chat--message'>
-      {mess}
-    </div>
+    <Message key={i} message={mess} />
   ));
   return (
     <section className='chat chat-bg'>
