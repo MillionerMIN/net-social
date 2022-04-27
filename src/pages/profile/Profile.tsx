@@ -13,10 +13,11 @@ type ProfilePropsType = {
   userProfile: UserProfileType;
   postData: PostDataType[];
   friends: UserProfileType[];
+  addPost: (text: string) => void;
 };
 
 const Profile = (props: ProfilePropsType) => {
-  const { userProfile, postData, friends } = props;
+  const { userProfile, postData, friends, addPost } = props;
 
   const posts = postData.map((post, i) => (
     <Post
@@ -49,7 +50,7 @@ const Profile = (props: ProfilePropsType) => {
             about={userProfile.about}
             location={userProfile.location}
           />
-          <NewPost />
+          <NewPost addPost={addPost} />
           {posts}
         </div>
         <aside className='profile--sidebar'>

@@ -5,7 +5,12 @@ import { ChangeEvent, useState } from 'react';
 import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';
 
-const NewPost = () => {
+type NewPostPropsType = {
+  addPost: (text: string) => void;
+};
+
+const NewPost = (props: NewPostPropsType) => {
+  const { addPost } = props;
   const [textarea, setTextarea] = useState<string | null>(null);
   const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
@@ -14,7 +19,7 @@ const NewPost = () => {
   };
 
   const addPostHandler = () => {
-    alert(textarea);
+    addPost(textarea as string);
   };
 
   return (

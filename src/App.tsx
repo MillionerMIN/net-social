@@ -9,15 +9,16 @@ import Routing from './routes/Routing';
 
 type AppPropsType = {
   state: StateType;
+  addPost: (text: string) => void;
 };
 
 function App(props: AppPropsType) {
-  const { state } = props;
+  const { state, addPost } = props;
   return (
     <BrowserRouter>
       <div className='app'>
         <Header />
-        <Routing state={state} />
+        <Routing state={state} addPost={addPost} />
         <Footer />
       </div>
     </BrowserRouter>
