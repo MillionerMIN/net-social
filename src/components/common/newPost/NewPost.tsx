@@ -7,7 +7,7 @@ import TextareaText from '../textareaText/TextareaText';
 
 type NewPostPropsType = {
   addPost: () => void;
-  updatePostText: (text: string | null) => void;
+  updatePostText: (text: string) => void;
   newPostText: string | null;
 };
 

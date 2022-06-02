@@ -3,7 +3,7 @@ import './routing.scss';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { StateType } from '../redux/state';
+import { StoreType } from '../redux/state';
 
 const Profile = React.lazy(() => import('../pages/profile/Profile'));
 const Messages = React.lazy(() => import('../pages/messages/Messages'));
@@ -13,14 +13,13 @@ const Setting = React.lazy(() => import('../pages/setting/Setting'));
 const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 type RoutingPropsType = {
-  state: StateType;
-  addPost: () => void;
-  updatePostText: (text: string | null) => void;
+  store: StoreType;
 };
 
 const Routing = (props: RoutingPropsType) => {
-  const { addPost, updatePostText } = props;
-  const { profilePage, messagesPage, sidebar } = props.state;
+  const { store } = props;
+  console.log(store.getState());
+
   return (
     <main className='main main-pd main-md'>
       <Suspense fallback='...Loading'>
@@ -29,10 +28,10 @@ const Routing = (props: RoutingPropsType) => {
             path='/'
             element={
               <Profile
-                profilePage={profilePage}
-                friends={sidebar.friends}
-                addPost={addPost}
-                updatePostText={updatePostText}
+                profilePage={store.getState().profilePage}
+                friends={store.getState().sidebar.friends}
+                addPost={store.addPost.bind(store)}
+                updatePostText={store.updatePostText.bind(store)}
               />
             }
           />
@@ -40,10 +39,10 @@ const Routing = (props: RoutingPropsType) => {
             path='profile'
             element={
               <Profile
-                profilePage={profilePage}
-                friends={sidebar.friends}
-                addPost={addPost}
-                updatePostText={updatePostText}
+                profilePage={store.getState().profilePage}
+                friends={store.getState().sidebar.friends}
+                addPost={store.addPost.bind(store)}
+                updatePostText={store.updatePostText.bind(store)}
               />
             }
           />
@@ -51,8 +50,8 @@ const Routing = (props: RoutingPropsType) => {
             path='messages'
             element={
               <Messages
-                messagesData={messagesPage.messagesData}
-                dialogData={messagesPage.dialogData}
+                messagesData={store.getState().messagesPage.messagesData}
+                dialogData={store.getState().messagesPage.dialogData}
               />
             }
           >
@@ -60,8 +59,8 @@ const Routing = (props: RoutingPropsType) => {
               path=':chat'
               element={
                 <Messages
-                  messagesData={messagesPage.messagesData}
-                  dialogData={messagesPage.dialogData}
+                  messagesData={store.getState().messagesPage.messagesData}
+                  dialogData={store.getState().messagesPage.dialogData}
                 />
               }
             />

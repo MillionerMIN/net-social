@@ -13,7 +13,7 @@ type ProfilePropsType = {
   profilePage: ProfilePage;
   friends: UserProfileType[];
   addPost: () => void;
-  updatePostText: (text: string | null) => void;
+  updatePostText: (text: string) => void;
 };
 
 const Profile = (props: ProfilePropsType) => {
