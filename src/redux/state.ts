@@ -24,7 +24,7 @@ export type PostDataType = {
   photo: string;
   location: string;
   like: number;
-  message: string;
+  message: string | null;
 };
 
 export type DialogObjType = {
@@ -33,8 +33,14 @@ export type DialogObjType = {
   photo?: string;
 };
 
+export type ProfilePage = {
+  userProfile: UserProfileType;
+  postData: PostDataType[];
+  newMessagePost: string | null;
+};
+
 export type StateType = {
-  profilePage: { userProfile: UserProfileType; postData: PostDataType[] };
+  profilePage: ProfilePage;
   messagesPage: { dialogData: DialogObjType[]; messagesData: string[] };
   sidebar: {
     friends: UserProfileType[];
@@ -95,6 +101,7 @@ const state: StateType = {
         message: 'Hello world',
       },
     ],
+    newMessagePost: 'it-kamasutra',
   },
   messagesPage: {
     dialogData: [
@@ -159,8 +166,7 @@ const state: StateType = {
 };
 
 //add post message Profile Page
-export const addPost = (text: string) => {
-  console.log('*****addpost******', text);
+export const addPost = () => {
   const newPost = {
     name: 'Leonardo',
     lastName: 'DiCaprio',
@@ -171,9 +177,16 @@ export const addPost = (text: string) => {
       'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
     location: 'Malibu, California, USA',
     like: 20,
-    message: text,
+    message: state.profilePage.newMessagePost,
   };
   state.profilePage.postData.push(newPost);
+  state.profilePage.newMessagePost = '';
+  rerenderEntireTree(state);
+};
+
+//update post message textarea Profile Page
+export const updatePostText = (text: string | null) => {
+  state.profilePage.newMessagePost = text;
   rerenderEntireTree(state);
 };
 

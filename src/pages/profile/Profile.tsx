@@ -5,19 +5,20 @@ import ViewCounter from '../../components/common/viewCounter/ViewCounter';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import UserProfile from '../../components/userProfile/UserProfile';
-import { PostDataType, UserProfileType } from '../../redux/state';
+import { ProfilePage, UserProfileType } from '../../redux/state';
 import AuthorMessage from '../messages/authorMessage/AuthorMessage';
 import Post from './post/Post';
 
 type ProfilePropsType = {
-  userProfile: UserProfileType;
-  postData: PostDataType[];
+  profilePage: ProfilePage;
   friends: UserProfileType[];
-  addPost: (text: string) => void;
+  addPost: () => void;
+  updatePostText: (text: string | null) => void;
 };
 
 const Profile = (props: ProfilePropsType) => {
-  const { userProfile, postData, friends, addPost } = props;
+  const { userProfile, postData, newMessagePost } = props.profilePage;
+  const { friends, addPost, updatePostText } = props;
 
   const posts = postData.map((post, i) => (
     <Post
@@ -25,7 +26,7 @@ const Profile = (props: ProfilePropsType) => {
       name={`${post.name} ${post.lastName}`}
       photo={post.photo}
       profession={post.profession}
-      message={post.message}
+      message={post.message as string}
       like={post.like}
     />
   ));
@@ -50,7 +51,11 @@ const Profile = (props: ProfilePropsType) => {
             about={userProfile.about}
             location={userProfile.location}
           />
-          <NewPost addPost={addPost} />
+          <NewPost
+            addPost={addPost}
+            updatePostText={updatePostText}
+            newPostText={newMessagePost}
+          />
           {posts}
         </div>
         <aside className='profile--sidebar'>

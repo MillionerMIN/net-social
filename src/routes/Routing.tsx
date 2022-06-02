@@ -14,11 +14,12 @@ const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 type RoutingPropsType = {
   state: StateType;
-  addPost: (text: string) => void;
+  addPost: () => void;
+  updatePostText: (text: string | null) => void;
 };
 
 const Routing = (props: RoutingPropsType) => {
-  const { addPost } = props;
+  const { addPost, updatePostText } = props;
   const { profilePage, messagesPage, sidebar } = props.state;
   return (
     <main className='main main-pd main-md'>
@@ -28,10 +29,10 @@ const Routing = (props: RoutingPropsType) => {
             path='/'
             element={
               <Profile
-                postData={profilePage.postData}
-                userProfile={profilePage.userProfile}
+                profilePage={profilePage}
                 friends={sidebar.friends}
                 addPost={addPost}
+                updatePostText={updatePostText}
               />
             }
           />
@@ -39,10 +40,10 @@ const Routing = (props: RoutingPropsType) => {
             path='profile'
             element={
               <Profile
-                postData={profilePage.postData}
-                userProfile={profilePage.userProfile}
+                profilePage={profilePage}
                 friends={sidebar.friends}
                 addPost={addPost}
+                updatePostText={updatePostText}
               />
             }
           />
