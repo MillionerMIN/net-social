@@ -31,7 +31,7 @@ const NewPost = (props: NewPostPropsType) => {
             onChange={textareaHandler}
             border={true}
             placeholder='What’s on your mind?'
-            name='new post'
+            name='newPost'
           />
           <Button className='new-post--button' onClick={addPostHandler}>
             send

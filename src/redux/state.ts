@@ -157,9 +157,9 @@ const state: StateType = {
   },
 };
 
+//add post message Profile Page
 export const addPost = (text: string) => {
   console.log('*****addpost******', text);
-
   const newPost = {
     name: 'Leonardo',
     lastName: 'DiCaprio',
