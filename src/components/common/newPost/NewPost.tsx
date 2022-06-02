@@ -1,6 +1,6 @@
 import './newPost.scss';
 
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';

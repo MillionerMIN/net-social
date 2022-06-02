@@ -3,48 +3,9 @@ import Photo_2 from '../assets/images/friends/Photo_2.jpg';
 import Photo_3 from '../assets/images/friends/Photo_3.jpg';
 import Photo_4 from '../assets/images/friends/Photo_4.jpg';
 import Photo_5 from '../assets/images/friends/Photo_5.jpg';
-import rerenderEntireTree from '../render';
 
-export type UserProfileType = {
-  name: string;
-  lastName: string;
-  bg: string;
-  about: string;
-  profession: string;
-  photo: string;
-  location: string;
-};
-
-export type PostDataType = {
-  name: string;
-  lastName: string;
-  bg: string;
-  about: string;
-  profession: string;
-  photo: string;
-  location: string;
-  like: number;
-  message: string | null;
-};
-
-export type DialogObjType = {
-  id: string;
-  name: string;
-  photo?: string;
-};
-
-export type ProfilePage = {
-  userProfile: UserProfileType;
-  postData: PostDataType[];
-  newMessagePost: string | null;
-};
-
-export type StateType = {
-  profilePage: ProfilePage;
-  messagesPage: { dialogData: DialogObjType[]; messagesData: string[] };
-  sidebar: {
-    friends: UserProfileType[];
-  };
+let rerenderEntireTree = () => {
+  console.log('render');
 };
 
 const state: StateType = {
@@ -181,13 +142,60 @@ export const addPost = () => {
   };
   state.profilePage.postData.push(newPost);
   state.profilePage.newMessagePost = '';
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 };
 
 //update post message textarea Profile Page
 export const updatePostText = (text: string | null) => {
   state.profilePage.newMessagePost = text;
-  rerenderEntireTree(state);
+  rerenderEntireTree();
+};
+
+//observer on change
+export const subscriber = (observer: any) => {
+  rerenderEntireTree = observer;
+};
+
+export type UserProfileType = {
+  name: string;
+  lastName: string;
+  bg: string;
+  about: string;
+  profession: string;
+  photo: string;
+  location: string;
+};
+
+export type PostDataType = {
+  name: string;
+  lastName: string;
+  bg: string;
+  about: string;
+  profession: string;
+  photo: string;
+  location: string;
+  like: number;
+  message: string | null;
+};
+
+export type DialogObjType = {
+  id: string;
+  name: string;
+  photo?: string;
+};
+
+export type ProfilePage = {
+  userProfile: UserProfileType;
+  postData: PostDataType[];
+  newMessagePost: string | null;
+};
+
+export type StateType = {
+  profilePage: ProfilePage;
+  messagesPage: { dialogData: DialogObjType[]; messagesData: string[] };
+  sidebar: {
+    friends: UserProfileType[];
+  };
 };
 
 export default state;
