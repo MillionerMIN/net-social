@@ -1,12 +1,6 @@
 import './index.scss';
 
-// import React from 'react';
-import ReactDOM from 'react-dom/client';
+import state from './redux/state';
+import rerenderEntireTree from './render';
 
-import App from './App';
-import state, { addPost } from './redux/state';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(<App state={state} addPost={addPost} />);
+rerenderEntireTree(state);

@@ -3,6 +3,7 @@ import Photo_2 from '../assets/images/friends/Photo_2.jpg';
 import Photo_3 from '../assets/images/friends/Photo_3.jpg';
 import Photo_4 from '../assets/images/friends/Photo_4.jpg';
 import Photo_5 from '../assets/images/friends/Photo_5.jpg';
+import rerenderEntireTree from '../render';
 
 export type UserProfileType = {
   name: string;
@@ -173,6 +174,7 @@ export const addPost = (text: string) => {
     message: text,
   };
   state.profilePage.postData.push(newPost);
+  rerenderEntireTree(state);
 };
 
 export default state;

@@ -20,6 +20,7 @@ const NewPost = (props: NewPostPropsType) => {
 
   const addPostHandler = () => {
     addPost(textarea as string);
+    setTextarea('');
   };
 
   return (
