@@ -279,32 +279,32 @@ const store = {
   _callSubscriber() {
     console.log('render');
   },
-  updatePostText(text: string) {
-    this._state.profilePage.newMessagePost = text;
-    this._callSubscriber();
-  },
-  addPost() {
-    //add post message Profile Page
-    // const newMessage = this._state.profilePage.newMessagePost;
-    const newPost = {
-      name: 'Leonardo',
-      lastName: 'DiCaprio',
-      bg: 'https://img.wallpapersafari.com/desktop/1920/1080/1/2/LFPjy5.jpg',
-      about: 'Freelance UX/UI designer',
-      profession: 'Freelance UX/UI',
-      photo:
-        'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
-      location: 'Malibu, California, USA',
-      like: 20,
-      message: this._state.profilePage.newMessagePost,
-    };
-    this._state.profilePage.postData.push(newPost);
-    this._state.profilePage.newMessagePost = '';
-    this._callSubscriber();
-  },
 
   subscriber(observer: any) {
     this._callSubscriber = observer;
+  },
+  dispatch(action: { type: string; payload?: string }) {
+    // action  this object have type and other arguments
+    if (action.type === 'ADD-POST') {
+      const newPost = {
+        name: 'Leonardo',
+        lastName: 'DiCaprio',
+        bg: 'https://img.wallpapersafari.com/desktop/1920/1080/1/2/LFPjy5.jpg',
+        about: 'Freelance UX/UI designer',
+        profession: 'Freelance UX/UI',
+        photo:
+          'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
+        location: 'Malibu, California, USA',
+        like: 20,
+        message: this._state.profilePage.newMessagePost,
+      };
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newMessagePost = '';
+      this._callSubscriber();
+    } else if (action.type === 'UPDATE-POST-TEXT') {
+      this._state.profilePage.newMessagePost = action.payload as string;
+      this._callSubscriber();
+    }
   },
 };
 

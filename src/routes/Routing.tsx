@@ -3,7 +3,7 @@ import './routing.scss';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { StoreType } from '../redux/state';
+import { StateType } from '../redux/state';
 
 const Profile = React.lazy(() => import('../pages/profile/Profile'));
 const Messages = React.lazy(() => import('../pages/messages/Messages'));
@@ -13,12 +13,12 @@ const Setting = React.lazy(() => import('../pages/setting/Setting'));
 const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 type RoutingPropsType = {
-  store: StoreType;
+  state: StateType;
+  dispatch: (action: { type: string; payload?: string }) => void;
 };
 
 const Routing = (props: RoutingPropsType) => {
-  const { store } = props;
-  console.log(store.getState());
+  const { state, dispatch } = props;
 
   return (
     <main className='main main-pd main-md'>
@@ -28,10 +28,9 @@ const Routing = (props: RoutingPropsType) => {
             path='/'
             element={
               <Profile
-                profilePage={store.getState().profilePage}
-                friends={store.getState().sidebar.friends}
-                addPost={store.addPost.bind(store)}
-                updatePostText={store.updatePostText.bind(store)}
+                profilePage={state.profilePage}
+                friends={state.sidebar.friends}
+                dispatch={dispatch}
               />
             }
           />
@@ -39,10 +38,9 @@ const Routing = (props: RoutingPropsType) => {
             path='profile'
             element={
               <Profile
-                profilePage={store.getState().profilePage}
-                friends={store.getState().sidebar.friends}
-                addPost={store.addPost.bind(store)}
-                updatePostText={store.updatePostText.bind(store)}
+                profilePage={state.profilePage}
+                friends={state.sidebar.friends}
+                dispatch={dispatch}
               />
             }
           />
@@ -50,8 +48,8 @@ const Routing = (props: RoutingPropsType) => {
             path='messages'
             element={
               <Messages
-                messagesData={store.getState().messagesPage.messagesData}
-                dialogData={store.getState().messagesPage.dialogData}
+                messagesData={state.messagesPage.messagesData}
+                dialogData={state.messagesPage.dialogData}
               />
             }
           >
@@ -59,8 +57,8 @@ const Routing = (props: RoutingPropsType) => {
               path=':chat'
               element={
                 <Messages
-                  messagesData={store.getState().messagesPage.messagesData}
-                  dialogData={store.getState().messagesPage.dialogData}
+                  messagesData={state.messagesPage.messagesData}
+                  dialogData={state.messagesPage.dialogData}
                 />
               }
             />

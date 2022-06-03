@@ -2,22 +2,23 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
-import { StoreType } from './redux/state';
+import { StateType } from './redux/state';
 import Routing from './routes/Routing';
 
 // ##################### ***App*** #######################
 
 type AppPropsType = {
-  store: StoreType;
+  state: StateType;
+  dispatch: (action: { type: string; payload?: string }) => void;
 };
 
 function App(props: AppPropsType) {
-  const { store } = props;
+  const { state, dispatch } = props;
   return (
     <BrowserRouter>
       <div className='app'>
         <Header />
-        <Routing store={store} />
+        <Routing state={state} dispatch={dispatch} />
         <Footer />
       </div>
     </BrowserRouter>

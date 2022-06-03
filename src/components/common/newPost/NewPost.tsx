@@ -6,13 +6,12 @@ import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';
 
 type NewPostPropsType = {
-  addPost: () => void;
-  updatePostText: (text: string) => void;
+  dispatch: (action: { type: string; payload?: string }) => void;
   newPostText: string | null;
 };
 
 const NewPost = (props: NewPostPropsType) => {
-  const { addPost, updatePostText, newPostText } = props;
+  const { dispatch, newPostText } = props;
   // const [textarea, setTextarea] = useState<string | null>(null);
   // const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
   //   e.preventDefault;
@@ -21,12 +20,12 @@ const NewPost = (props: NewPostPropsType) => {
   // };
 
   const addPostHandler = () => {
-    addPost();
+    dispatch({ type: 'ADD-POST' });
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
-    updatePostText(e.currentTarget.value);
+    dispatch({ type: 'UPDATE-POST-TEXT', payload: e.currentTarget.value });
   };
 
   return (

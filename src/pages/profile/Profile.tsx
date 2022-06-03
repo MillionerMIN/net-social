@@ -12,13 +12,12 @@ import Post from './post/Post';
 type ProfilePropsType = {
   profilePage: ProfilePage;
   friends: UserProfileType[];
-  addPost: () => void;
-  updatePostText: (text: string) => void;
+  dispatch: (action: { type: string; payload?: string }) => void;
 };
 
 const Profile = (props: ProfilePropsType) => {
   const { userProfile, postData, newMessagePost } = props.profilePage;
-  const { friends, addPost, updatePostText } = props;
+  const { friends, dispatch } = props;
 
   const posts = postData.map((post, i) => (
     <Post
@@ -51,11 +50,7 @@ const Profile = (props: ProfilePropsType) => {
             about={userProfile.about}
             location={userProfile.location}
           />
-          <NewPost
-            addPost={addPost}
-            updatePostText={updatePostText}
-            newPostText={newMessagePost}
-          />
+          <NewPost dispatch={dispatch} newPostText={newMessagePost} />
           {posts}
         </div>
         <aside className='profile--sidebar'>
