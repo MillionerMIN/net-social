@@ -2,6 +2,7 @@ import './newPost.scss';
 
 import { ChangeEvent } from 'react';
 
+import { addPostAC, updatePostTextAC } from '../../../redux/state';
 import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';
 
@@ -20,12 +21,12 @@ const NewPost = (props: NewPostPropsType) => {
   // };
 
   const addPostHandler = () => {
-    dispatch({ type: 'ADD-POST' });
+    dispatch(addPostAC());
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
-    dispatch({ type: 'UPDATE-POST-TEXT', payload: e.currentTarget.value });
+    dispatch(updatePostTextAC(e.currentTarget.value));
   };
 
   return (
