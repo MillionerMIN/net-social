@@ -6,6 +6,8 @@ import Photo_5 from '../assets/images/friends/Photo_5.jpg';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
 const store = {
   _state: {
@@ -73,7 +75,14 @@ const store = {
         { id: '5', name: 'Audrey Alexander', photo: Photo_5 },
       ],
 
-      messagesData: ['Hi', 'Let`s tell with you', 'Go', 'What does you do?'],
+      messagesData: [
+        'Hi',
+        'Let`s tell with you',
+        'Go',
+        'What does you do?',
+        'gi',
+      ],
+      newMessageChat: '',
     },
     sidebar: {
       friends: [
@@ -125,9 +134,6 @@ const store = {
       ],
     },
   },
-  // setState(value: any) {
-  //   this._state = value;
-  // },
   getState() {
     return this._state;
   },
@@ -158,17 +164,32 @@ const store = {
       this._callSubscriber();
     } else if (action.type === UPDATE_POST_TEXT) {
       this._state.profilePage.newMessagePost = action.payload as string;
+    } else if (action.type === ADD_MESSAGE) {
+      this._state.messagesPage.messagesData.push(
+        this._state.messagesPage.newMessageChat
+      );
       this._callSubscriber();
+    } else if (action.type === UPDATE_MESSAGE_TEXT) {
+      this._state.messagesPage.newMessageChat = action.payload as string;
     }
   },
 };
 
-//added action creator
+//added action creator for Post
 
 export const addPostAC = () => ({ type: ADD_POST });
 export const updatePostTextAC = (text: string) => ({
   type: UPDATE_POST_TEXT,
   payload: text,
+});
+
+//added action for Messages
+export const addMessageAC = () => ({
+  type: ADD_MESSAGE,
+});
+export const updateMessageTextAC = (message: string) => ({
+  type: UPDATE_MESSAGE_TEXT,
+  payload: message,
 });
 
 export type UserProfileType = {
@@ -205,9 +226,15 @@ export type ProfilePage = {
   newMessagePost: string | null;
 };
 
+export type MessagePageType = {
+  dialogData: DialogObjType[];
+  messagesData: string[];
+  newMessageChat: string | null;
+};
+
 export type StateType = {
   profilePage: ProfilePage;
-  messagesPage: { dialogData: DialogObjType[]; messagesData: string[] };
+  messagesPage: MessagePageType;
   sidebar: {
     friends: UserProfileType[];
   };

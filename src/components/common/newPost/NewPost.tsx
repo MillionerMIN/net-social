@@ -1,6 +1,6 @@
 import './newPost.scss';
 
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { addPostAC, updatePostTextAC } from '../../../redux/state';
 import Button from '../button/Button';
@@ -13,7 +13,7 @@ type NewPostPropsType = {
 
 const NewPost = (props: NewPostPropsType) => {
   const { dispatch, newPostText } = props;
-  // const [textarea, setTextarea] = useState<string | null>(null);
+  const [textarea, setTextarea] = useState<string | null>(newPostText);
   // const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
   //   e.preventDefault;
   //   const text = e.currentTarget.value;
@@ -26,7 +26,9 @@ const NewPost = (props: NewPostPropsType) => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
-    dispatch(updatePostTextAC(e.currentTarget.value));
+    const text = e.currentTarget.value;
+    setTextarea(text);
+    dispatch(updatePostTextAC(textarea as string));
   };
 
   return (
@@ -37,7 +39,7 @@ const NewPost = (props: NewPostPropsType) => {
           <TextareaText
             onChange={onChangeHandler}
             border={true}
-            value={newPostText as string}
+            value={textarea as string}
             placeholder='What’s on your mind?'
             name='newPost'
           />

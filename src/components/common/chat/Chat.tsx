@@ -2,26 +2,29 @@ import './chat.scss';
 
 import { ChangeEvent, useState } from 'react';
 
+import { addMessageAC, updateMessageTextAC } from '../../../redux/state';
 import Button from '../button/Button';
 import Message from '../message/Message';
 import TextareaText from '../textareaText/TextareaText';
 
 type ChatPropsType = {
   messages?: string[];
+  dispatch: (action: { type: string; payload?: string }) => void;
 };
 
 const Chat = (props: ChatPropsType) => {
-  const { messages = ['Hi', 'Let`s tell with you', 'Go'] } = props;
+  const { messages = [], dispatch } = props;
 
-  const [textarea, setTextarea] = useState<string | null>(null);
+  const [textarea, setTextarea] = useState<string>('');
   const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
     const text = e.currentTarget.value;
     setTextarea(text);
+    dispatch(updateMessageTextAC(textarea));
   };
 
-  const addPostHandler = () => {
-    alert(textarea);
+  const addMessageHandler = () => {
+    dispatch(addMessageAC());
   };
 
   const contentMessages = messages.map((mess, i) => (
@@ -39,7 +42,7 @@ const Chat = (props: ChatPropsType) => {
             placeholder='What’s on your mind?'
             name='new post'
           />
-          <Button className='chat--button' onClick={addPostHandler}>
+          <Button className='chat--button' onClick={addMessageHandler}>
             send
           </Button>
         </div>

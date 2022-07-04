@@ -47,18 +47,15 @@ const Routing = (props: RoutingPropsType) => {
           <Route
             path='messages'
             element={
-              <Messages
-                messagesData={state.messagesPage.messagesData}
-                dialogData={state.messagesPage.dialogData}
-              />
+              <Messages messagesData={state.messagesPage} dispatch={dispatch} />
             }
           >
             <Route
               path=':chat'
               element={
                 <Messages
-                  messagesData={state.messagesPage.messagesData}
-                  dialogData={state.messagesPage.dialogData}
+                  messagesData={state.messagesPage}
+                  dispatch={dispatch}
                 />
               }
             />

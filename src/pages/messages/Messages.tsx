@@ -5,15 +5,17 @@ import { NavLink } from 'react-router-dom';
 import Chat from '../../components/common/chat/Chat';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
+import { MessagePageType } from '../../redux/state';
 import AuthorMessage from './authorMessage/AuthorMessage';
 
 type MessagesPropsType = {
-  dialogData: { id: string; name: string; photo?: string }[];
-  messagesData: string[];
+  messagesData: MessagePageType;
+  dispatch: (action: { type: string; payload?: string }) => void;
 };
 
 const Messages = (props: MessagesPropsType) => {
-  const { dialogData, messagesData } = props;
+  const { dispatch } = props;
+  const { dialogData, messagesData } = props.messagesData;
 
   const dialogItems = dialogData.map((item) => (
     <Dialog key={item.id} id={item.id} name={item.name} photo={item.photo} />
@@ -26,7 +28,7 @@ const Messages = (props: MessagesPropsType) => {
           <Sidebar title='chats'>{dialogItems}</Sidebar>
         </aside>
         <div className='messages--main'>
-          <Chat messages={messagesData} />
+          <Chat messages={messagesData} dispatch={dispatch} />
         </div>
       </Layout>
     </div>
