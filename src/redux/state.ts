@@ -68,7 +68,7 @@ const store = {
           message: 'Hello world',
         },
       ],
-      newMessagePost: 'it-kamasutra' as string,
+      newMessagePost: 'it-kamasutra',
     },
     messagesPage: {
       dialogData: [
