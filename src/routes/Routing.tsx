@@ -3,7 +3,7 @@ import './routing.scss';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { StateType } from '../redux/state';
+import { ActionType, StateType } from '../redux/state';
 
 const Profile = React.lazy(() => import('../pages/profile/Profile'));
 const Messages = React.lazy(() => import('../pages/messages/Messages'));
@@ -14,7 +14,7 @@ const NotFound = React.lazy(() => import('../pages/notFound/NotFound'));
 
 type RoutingPropsType = {
   state: StateType;
-  dispatch: (action: { type: string; payload?: string }) => void;
+  dispatch: (action: ActionType) => void;
 };
 
 const Routing = (props: RoutingPropsType) => {

@@ -5,14 +5,18 @@ import ViewCounter from '../../components/common/viewCounter/ViewCounter';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import UserProfile from '../../components/userProfile/UserProfile';
-import { ProfilePage, UserProfileType } from '../../redux/state';
+import {
+  ActionType,
+  ProfilePageType,
+  UserProfileType,
+} from '../../redux/state';
 import AuthorMessage from '../messages/authorMessage/AuthorMessage';
 import Post from './post/Post';
 
 type ProfilePropsType = {
-  profilePage: ProfilePage;
+  profilePage: ProfilePageType;
   friends: UserProfileType[];
-  dispatch: (action: { type: string; payload?: string }) => void;
+  dispatch: (action: ActionType) => void;
 };
 
 const Profile = (props: ProfilePropsType) => {

@@ -3,11 +3,15 @@ import Photo_2 from '../assets/images/friends/Photo_2.jpg';
 import Photo_3 from '../assets/images/friends/Photo_3.jpg';
 import Photo_4 from '../assets/images/friends/Photo_4.jpg';
 import Photo_5 from '../assets/images/friends/Photo_5.jpg';
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+import messagesReducer, {
+  AddMessageActionType,
+  UpdateMessageTextActionType,
+} from './messages-reducer';
+import profileReducer, {
+  AddPostActionType,
+  UpdatePostActionType,
+} from './profile-reducer';
+import sidebarReducer from './sidebar-reducer';
 
 const store = {
   _state: {
@@ -144,53 +148,23 @@ const store = {
   subscriber(observer: any) {
     this._callSubscriber = observer;
   },
-  dispatch(action: { type: string; payload?: string }) {
+  dispatch(action: ActionType) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(
+      this._state.messagesPage,
+      action
+    );
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
     // action  this object have type and other arguments
-    if (action.type === ADD_POST) {
-      const newPost = {
-        name: 'Leonardo',
-        lastName: 'DiCaprio',
-        bg: 'https://img.wallpapersafari.com/desktop/1920/1080/1/2/LFPjy5.jpg',
-        about: 'Freelance UX/UI designer',
-        profession: 'Freelance UX/UI',
-        photo:
-          'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTgwNDU1MTIxMTE1Njg2NzY0/gettyimages-1197345888.jpg',
-        location: 'Malibu, California, USA',
-        like: 20,
-        message: this._state.profilePage.newMessagePost,
-      };
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newMessagePost = '';
-      this._callSubscriber();
-    } else if (action.type === UPDATE_POST_TEXT) {
-      this._state.profilePage.newMessagePost = action.payload as string;
-    } else if (action.type === ADD_MESSAGE) {
-      this._state.messagesPage.messagesData.push(
-        this._state.messagesPage.newMessageChat
-      );
-      this._callSubscriber();
-    } else if (action.type === UPDATE_MESSAGE_TEXT) {
-      this._state.messagesPage.newMessageChat = action.payload as string;
-    }
+    this._callSubscriber();
   },
 };
 
-//added action creator for Post
-
-export const addPostAC = () => ({ type: ADD_POST });
-export const updatePostTextAC = (text: string) => ({
-  type: UPDATE_POST_TEXT,
-  payload: text,
-});
-
-//added action for Messages
-export const addMessageAC = () => ({
-  type: ADD_MESSAGE,
-});
-export const updateMessageTextAC = (message: string) => ({
-  type: UPDATE_MESSAGE_TEXT,
-  payload: message,
-});
+export type ActionType =
+  | AddPostActionType
+  | UpdatePostActionType
+  | AddMessageActionType
+  | UpdateMessageTextActionType;
 
 export type UserProfileType = {
   name: string;
@@ -211,33 +185,34 @@ export type PostDataType = {
   photo: string;
   location: string;
   like: number;
-  message: string | null;
+  message: string;
 };
 
 export type DialogObjType = {
   id: string;
   name: string;
-  photo?: string;
+  photo: string;
 };
 
-export type ProfilePage = {
+export type ProfilePageType = {
   userProfile: UserProfileType;
   postData: PostDataType[];
-  newMessagePost: string | null;
+  newMessagePost: string;
 };
 
 export type MessagePageType = {
   dialogData: DialogObjType[];
   messagesData: string[];
-  newMessageChat: string | null;
+  newMessageChat: string;
+};
+export type SidebarType = {
+  friends: UserProfileType[];
 };
 
 export type StateType = {
-  profilePage: ProfilePage;
+  profilePage: ProfilePageType;
   messagesPage: MessagePageType;
-  sidebar: {
-    friends: UserProfileType[];
-  };
+  sidebar: SidebarType;
 };
 
 export type StoreType = typeof store;

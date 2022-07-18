@@ -2,14 +2,18 @@ import './chat.scss';
 
 import { ChangeEvent, useState } from 'react';
 
-import { addMessageAC, updateMessageTextAC } from '../../../redux/state';
+import {
+  addMessageAC,
+  updateMessageTextAC,
+} from '../../../redux/messages-reducer';
+import { ActionType } from '../../../redux/state';
 import Button from '../button/Button';
 import Message from '../message/Message';
 import TextareaText from '../textareaText/TextareaText';
 
 type ChatPropsType = {
   messages?: string[];
-  dispatch: (action: { type: string; payload?: string }) => void;
+  dispatch: (action: ActionType) => void;
 };
 
 const Chat = (props: ChatPropsType) => {
@@ -20,11 +24,11 @@ const Chat = (props: ChatPropsType) => {
     e.preventDefault;
     const text = e.currentTarget.value;
     setTextarea(text);
-    dispatch(updateMessageTextAC(textarea));
+    // dispatch(updateMessageTextAC(textarea));
   };
 
   const addMessageHandler = () => {
-    dispatch(addMessageAC());
+    dispatch(addMessageAC(textarea));
   };
 
   const contentMessages = messages.map((mess, i) => (

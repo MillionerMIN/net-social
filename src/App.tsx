@@ -2,14 +2,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
-import { StateType } from './redux/state';
+import { ActionType, StateType } from './redux/state';
 import Routing from './routes/Routing';
 
 // ##################### ***App*** #######################
 
 type AppPropsType = {
   state: StateType;
-  dispatch: (action: { type: string; payload?: string }) => void;
+  dispatch: (action: ActionType) => void;
 };
 
 function App(props: AppPropsType) {

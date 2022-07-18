@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom';
 import Chat from '../../components/common/chat/Chat';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { MessagePageType } from '../../redux/state';
+import { ActionType, MessagePageType } from '../../redux/state';
 import AuthorMessage from './authorMessage/AuthorMessage';
 
 type MessagesPropsType = {
   messagesData: MessagePageType;
-  dispatch: (action: { type: string; payload?: string }) => void;
+  dispatch: (action: ActionType) => void;
 };
 
 const Messages = (props: MessagesPropsType) => {
