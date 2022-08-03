@@ -145,7 +145,7 @@ const store = {
     console.log('render');
   },
 
-  subscriber(observer: any) {
+  subscribe(observer: any) {
     this._callSubscriber = observer;
   },
   dispatch(action: ActionType) {

@@ -3,6 +3,7 @@ import './routing.scss';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import Loader from '../components/common/loader/Loader';
 import { ActionType, StateType } from '../redux/state';
 
 const Profile = React.lazy(() => import('../pages/profile/Profile'));
@@ -22,7 +23,7 @@ const Routing = (props: RoutingPropsType) => {
 
   return (
     <main className='main main-pd main-md'>
-      <Suspense fallback='...Loading'>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path='/'
