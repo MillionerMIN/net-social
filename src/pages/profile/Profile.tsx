@@ -1,6 +1,6 @@
 import './profile.scss';
 
-import NewPost from '../../components/common/newPost/NewPost';
+import NewPostContainer from '../../components/common/newPost/NewPostContainer';
 import ViewCounter from '../../components/common/viewCounter/ViewCounter';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -54,7 +54,7 @@ const Profile = (props: ProfilePropsType) => {
             about={userProfile.about}
             location={userProfile.location}
           />
-          <NewPost dispatch={dispatch} newPostText={newMessagePost} />
+          <NewPostContainer dispatch={dispatch} newPostText={newMessagePost} />
           {posts}
         </div>
         <aside className='profile--sidebar'>

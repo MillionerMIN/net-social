@@ -2,29 +2,26 @@ import './newPost.scss';
 
 import { ChangeEvent, useState } from 'react';
 
-import { addPostAC, updatePostTextAC } from '../../../redux/profile-reducer';
-import { ActionType } from '../../../redux/state';
 import Button from '../button/Button';
 import TextareaText from '../textareaText/TextareaText';
 
 type NewPostPropsType = {
-  dispatch: (action: ActionType) => void;
+  onAddPost: (text: string) => void;
   newPostText: string;
 };
 
 const NewPost = (props: NewPostPropsType) => {
-  const { dispatch, newPostText } = props;
+  const { onAddPost, newPostText } = props;
   const [textarea, setTextarea] = useState<string>(newPostText);
 
   const addPostHandler = () => {
-    dispatch(addPostAC(textarea));
+    onAddPost(textarea);
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault;
     const text = e.currentTarget.value;
     setTextarea(text);
-    // dispatch(updatePostTextAC(textarea));
   };
 
   return (

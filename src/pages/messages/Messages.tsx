@@ -2,7 +2,7 @@ import './messages.scss';
 
 import { NavLink } from 'react-router-dom';
 
-import Chat from '../../components/common/chat/Chat';
+import ChatContainer from '../../components/common/chat/ChatContainer';
 import Layout from '../../components/layout /Layout';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { ActionType, MessagePageType } from '../../redux/state';
@@ -28,7 +28,7 @@ const Messages = (props: MessagesPropsType) => {
           <Sidebar title='chats'>{dialogItems}</Sidebar>
         </aside>
         <div className='messages--main'>
-          <Chat messages={messagesData} dispatch={dispatch} />
+          <ChatContainer messages={messagesData} dispatch={dispatch} />
         </div>
       </Layout>
     </div>
